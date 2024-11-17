@@ -1,3 +1,5 @@
+// Nom du programme
+
 const path = __filename
 
 let slashIndex = path.length - 1;

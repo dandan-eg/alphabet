@@ -1,3 +1,4 @@
+// Alphabet
 const characterA = 97
 const output = new Array(25)
 
