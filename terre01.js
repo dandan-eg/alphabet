@@ -8,3 +8,7 @@ while (path[slashIndex] !== '/' && slashIndex > 0) {
 const programName = path.substring(slashIndex + 1, path.length)
 console.log(programName)
 
+//const path = require('path');
+//const programName = path.basename(__filename);
+//
+//console.log(programName);
