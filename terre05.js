@@ -1,3 +1,4 @@
+// Divisions
 if (process.argv.length < 4) {
     console.log("Usage: node terre05.js <number1> <number2>")
     process.exit(1)

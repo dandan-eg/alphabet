@@ -1,3 +1,6 @@
+# Division
+
+# Helper function
 parse_to_int = fn str ->
   case Integer.parse(str) do
     {number, _reste} -> {:ok, number}
