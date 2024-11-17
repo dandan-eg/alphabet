@@ -1,8 +1,10 @@
+# pair ou impair
 System.argv()
 |> case do
   [] ->
     IO.puts("Usage: elixir  terre04.js <number>")
     System.stop(1)
+
   [arg | _rest] ->
     case Integer.parse(arg) do
       {number, _rest} ->
