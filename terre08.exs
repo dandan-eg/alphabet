@@ -1,5 +1,4 @@
-System.argv()
-|> case do
+case System.argv() do
   [] ->
     IO.puts("Usage: elixir terre08.exs")
     System.stop(1)
