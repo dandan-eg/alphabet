@@ -15,7 +15,6 @@ System.argv()
         System.stop(1)
 
       {number, _rest} ->
-        # Tentative n°2
         1..number
         |> Enum.find(fn divisor ->
           divisor * divisor > number

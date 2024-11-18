@@ -1,7 +1,7 @@
 // Racine carré d'un nombre
 //
 if (process.argv.length <= 2) {
-    console.log("Usage: terre04.js <number>")
+    console.log("Usage: terre08.js <number>")
     process.exit(1)
 }
 
