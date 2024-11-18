@@ -3,6 +3,7 @@ System.argv()
 |> case do
   [] ->
     IO.puts("Usage: elixir terre07.exs \"<sentence>\"")
+    System.stop(1)
 
   [arg | _rest] ->
     arg
