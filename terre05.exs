@@ -3,7 +3,7 @@
 # Helper function
 parse_to_int = fn str ->
   case Integer.parse(str) do
-    {number, _reste} -> {:ok, number}
+    {number, _rest} -> {:ok, number}
     :error -> {:error, str}
   end
 end
@@ -22,7 +22,7 @@ System.argv()
 
         {n1, n2} ->
           IO.puts("résultat: #{floor(n1 / n2)}")
-          IO.puts("résultat: #{rem(n1, n2)}")
+          IO.puts("reste: #{rem(n1, n2)}")
       end
     else
       {:error, invalid} -> IO.puts("Expected a valid number got=#{invalid}")

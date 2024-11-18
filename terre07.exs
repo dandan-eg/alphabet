@@ -1,4 +1,5 @@
 # Taille d'une chaine
+
 System.argv()
 |> case do
   [] ->
