@@ -1,5 +1,4 @@
 // 12 to 24
-
 if (process.argv.length == 2) {
     console.log("Usage: node terre11.js <date>");
     process.exit(1);
@@ -7,7 +6,7 @@ if (process.argv.length == 2) {
 
 const arg = process.argv[2]
 if (arg.length != 7) {
-    console.log("invalid format must be: hh:mm");
+    console.log("invalid format must be: hh:mmAM or hh:mmPM");
     process.exit(1);
 }
 
@@ -17,7 +16,7 @@ const separator = arg[2];
 const period = arg.substring(5, 7);
 
 if (isNaN(hours) || separator != ":" || isNaN(minutes)) {
-    console.log("invalid format must be: hh:mm");
+    console.log("invalid format must be: hh:mmAM or hh:mmPM");
     process.exit(1);
 }
 
