@@ -6,7 +6,7 @@ arg =
     [arg] ->
       arg
 
-    _ ->
+    _args ->
       IO.puts("Usage: elixir terre09.exs <number>")
       System.stop(1)
   end

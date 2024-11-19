@@ -1,9 +1,5 @@
 case System.argv() do
-  [] ->
-    IO.puts("Usage: elixir terre08.exs")
-    System.stop(1)
-
-  [arg | _rest] ->
+  [arg] ->
     case Integer.parse(arg) do
       :error ->
         IO.puts("Expected a valid number got=#{arg}")
@@ -21,4 +17,8 @@ case System.argv() do
         |> then(fn divisor -> divisor - 1 end)
         |> IO.puts()
     end
+
+  _args ->
+    IO.puts("Usage: elixir terre08.exs")
+    System.stop(1)
 end

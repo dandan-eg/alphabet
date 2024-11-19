@@ -1,12 +1,12 @@
 // Pair ou impair
 
-if (process.argv.length <= 2) {
+const args = process.argv.slice(2)
+if (args.length != 1) {
     console.log("Usage: terre04.js <number>")
     process.exit(1)
 }
 
-const arg = process.argv[2]
-const number = parseInt(arg)
+const number = parseInt(args[0])
 
 if (isNaN(number)) {
     console.log(`Expected a valid number got=${arg}`)

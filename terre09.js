@@ -1,11 +1,11 @@
 // Nombre premier
-if (process.argv.length <= 2) {
+const args = process.argv.slice(2)
+if (args.length != 1) {
     console.log("Usage: terre09.js <number>")
     process.exit(1)
 }
 
-const arg = process.argv[2]
-const number = parseInt(arg)
+const number = parseInt(args[0])
 
 if (isNaN(number)) {
     console.log(`Expected a number got=${arg}`)
@@ -17,7 +17,6 @@ if (number < 2) {
 } else {
     for (let i = 2; i < number / 2; i++) {
         if (number % i == 0) {
-
             console.log(`Non, ${number} n'est pas un nombre premier. ${number}/${i}=${number / i}`)
             process.exit(0)
         }

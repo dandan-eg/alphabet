@@ -1,11 +1,12 @@
 // Divisions
-if (process.argv.length < 4) {
+const args = process.argv.slice(2)
+if (args.length != 2) {
     console.log("Usage: node terre05.js <number1> <number2>")
     process.exit(1)
 }
 
-const arg1 = process.argv[2]
-const arg2 = process.argv[3]
+const arg1 = args[0]
+const arg2 = args[1]
 const number1 = parseInt(arg1)
 const number2 = parseInt(arg2)
 

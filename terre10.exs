@@ -2,11 +2,14 @@
 defmodule Exercice do
   def convert(time_str) do
     case parse_str_to_time(time_str) do
-      {hours, mounths} when hours > 12 ->
-        format_time(hours - 12, mounths, "PM")
+      {12, minutes} ->
+        format_time(12, minutes, "PM")
 
-      {hours, mounths} ->
-        format_time(hours, mounts, "AM")
+      {hours, minutes} when hours > 12 ->
+        format_time(hours - 12, minutes, "PM")
+
+      {hours, minutes} ->
+        format_time(hours, minutes, "AM")
 
       {:error, message} ->
         IO.puts(:stderr, message)

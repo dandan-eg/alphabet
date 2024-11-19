@@ -1,10 +1,12 @@
 // Inverser une chaîne
-if (process.argv.length <= 2) {
+const args = process.argv.slice(2)
+
+if (args.length != 1) {
     console.log("Usage: node terre06.js \"<sentence>\"")
     process.exit(1)
 }
 
-const sentence = process.argv[2]
+const sentence = args[0]
 const output = new Array(sentence.length)
 
 for (let i = 0; i < sentence.length; i++) {

@@ -1,12 +1,13 @@
 // L'alphabet à partir de
+const args = process.argv.slice(2)
 
-if (process.argv.length <= 2) {
+if (args.length != 1) {
     console.log("Usage: node terre03.js <letter>")
     process.exit(1)
 }
 
-const arg = process.argv[2]
-if (arg.length > 1) {
+const arg = args[0]
+if (arg.length != 1) {
     console.log(`Expected a lowercase letter got=${arg}`)
     process.exit(1)
 }
