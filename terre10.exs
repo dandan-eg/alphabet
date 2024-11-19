@@ -1,23 +1,20 @@
 # 24 to 12
-
 defmodule Exercice do
   def convert(time_str) do
-    with {:ok, time} <- parse_time(time_str) do
-      case time do
-        {h, m} when h > 12 ->
-          format_time(h - 12, m, "PM")
+    case parse_str_to_time(time_str) do
+      {hours, mounths} when hours > 12 ->
+        format_time(hours - 12, mounths, "PM")
 
-        {h, m} ->
-          format_time(h, m, "AM")
-      end
-    else
+      {hours, mounths} ->
+        format_time(hours, mounts, "AM")
+
       {:error, message} ->
         IO.puts(:stderr, message)
         System.halt(1)
     end
   end
 
-  defp parse_time(time_str) do
+  defp parse_str_to_time(time_str) do
     try do
       [hours, minutes] =
         time_str

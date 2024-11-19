@@ -1,10 +1,11 @@
 // 12 to 24
-if (process.argv.length == 2) {
-    console.log("Usage: node terre11.js <date>");
+const args = process.argv.slice(2)
+if (args.length != 1) {
+    console.log("Usage: node terre11.js <time>");
     process.exit(1);
 }
 
-const arg = process.argv[2]
+const arg = args[0]
 if (arg.length != 7) {
     console.log("invalid format must be: hh:mmAM or hh:mmPM");
     process.exit(1);
@@ -20,20 +21,26 @@ if (isNaN(hours) || separator != ":" || isNaN(minutes)) {
     process.exit(1);
 }
 
-if (minutes < 0 || minutes > 60) {
-    console.log("minutes must be between 0 and 60")
+if (minutes < 0 || minutes > 59) {
+    console.log("minutes must be between 0 and 59")
     process.exit(1)
 }
 
-if (hours < 0 || hours >= 12) {
-    console.log("hours must be between 00:00 and 11:59")
+if (hours < 0 || hours > 12) {
+    console.log("hours must be between 00:00 and 12:59")
     process.exit(1)
 }
 
-if (period == "PM") {
-    hours += 12;
-} else if (period != "AM") {
-    console.log("invalid period must be PM or AM");
+if (period === "AM") {
+    if (hours === 12) {
+        hours = 0; // Minuit
+    }
+} else if (period === "PM") {
+    if (hours !== 12) {
+        hours += 12; // Après-midi/soir
+    }
+} else {
+    console.log("Invalid period. Must be AM or PM");
     process.exit(1);
 }
 

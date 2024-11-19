@@ -10,7 +10,7 @@ end
 
 System.argv()
 |> case do
-  [arg1, arg2 | _rest] ->
+  [arg1, arg2] ->
     with {:ok, number1} <- parse_to_int.(arg1),
          {:ok, number2} <- parse_to_int.(arg2) do
       case {number1, number2} do

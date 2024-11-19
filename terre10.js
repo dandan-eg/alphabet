@@ -1,10 +1,12 @@
 // 24 to 12
-if (process.argv.length <= 2) {
-    console.log("Usage: terre10.js <date>")
+const args = process.argv.slice(2)
+
+if (args.length != 1) {
+    console.log("Usage: terre10.js <time>")
     process.exit(1)
 }
 
-const arg = process.argv[2]
+const arg = args[0]
 if (arg.length != 5) {
     console.log("invalid format must be: hh:mm")
     process.exit(1)
@@ -19,21 +21,23 @@ if (isNaN(hours) || separator != ":" || isNaN(minutes)) {
     process.exit(1)
 }
 
-if (minutes < 0 || minutes > 60) {
-    console.log("minutes must be between 0 and 60")
+if (minutes < 0 || minutes > 59) {
+    console.log("minutes must be between 0 and 59")
     process.exit(1)
 }
 
 
-if (hours < 0 || hours >= 24) {
+if (hours < 0 || hours > 23) {
     console.log("hours must be between 00:00 and 23:59")
     process.exit(1)
 }
 
 let period;
-if (hours > 12) {
-    hours -= 12
+if (hours == 12) {
     period = "PM"
+} else if (hours > 12) {
+    period = "PM"
+    hours -= 12
 } else {
     period = "AM"
 }

@@ -3,12 +3,12 @@
 arg =
   System.argv()
   |> case do
-    [] ->
+    [arg] ->
+      arg
+
+    _ ->
       IO.puts("Usage: elixir terre09.exs <number>")
       System.stop(1)
-
-    [arg | _rest] ->
-      arg
   end
 
 case Integer.parse(arg) do
