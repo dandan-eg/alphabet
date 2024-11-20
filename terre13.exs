@@ -1,3 +1,5 @@
+# Trié ou pas 
+
 defmodule Exercice do
   # Sort
   def sorted?([]), do: true
@@ -15,7 +17,10 @@ defmodule Exercice do
 
   # Helper :
   @spec validate_args(list(String.t())) ::
-          {:ok, list(number())} | {:error, :not_enough_args | {:invalid_arg, String.t()}}
+          {:ok, list(number())}
+          | {:error, :not_enough_args}
+          | {:error, {:invalid_arg, String.t()}}
+
   def validate_args(args)
 
   def validate_args([_, _ | _rest] = args) do
@@ -30,11 +35,8 @@ defmodule Exercice do
 
   defp parse_args_to_int([arg | tail], acc) do
     case Integer.parse(arg) do
-      {num, _rest} ->
-        parse_args_to_int(tail, [num | acc])
-
-      :error ->
-        {:error, {:invalid_arg, arg}}
+      {num, _rest} -> parse_args_to_int(tail, [num | acc])
+      :error -> {:error, {:invalid_arg, arg}}
     end
   end
 end

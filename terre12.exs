@@ -1,3 +1,4 @@
+# Trouver la suisse
 defmodule Exercice do
   def validate_args([arg1, arg2, arg3]) do
     with {:ok, num1} <- parse_arg(arg1),
@@ -19,11 +20,11 @@ System.argv()
 |> Exercice.validate_args()
 |> case do
   {num1, num2, num3} ->
-    begin_max = max(num1, num2)
-    end_max = max(num2, num3)
-    center = min(begin_max, end_max)
+    max_first_pair = max(num1, num2)
+    max_last_pair = max(num2, num3)
+    middle = min(max_first_pair, max_last_pair)
 
-    IO.puts(center)
+    IO.puts(middle)
 
   {:error, {:invalid_arg, arg}} ->
     IO.puts("\"#{arg}\"")

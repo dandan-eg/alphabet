@@ -1,3 +1,4 @@
+// Trouver la suisse
 const args = process.argv.slice(2)
 
 if (args.length != 3) {
@@ -15,16 +16,24 @@ for (let i = 0; i < args.length; i++) {
     numbers[i] = num
 }
 
-
-let middle = numbers[0]
-
-if (middle > numbers[1]) {
-    middle = numbers[1]
+function maxBetween(a, b) {
+    if (a > b) {
+        return a
+    } else {
+        return b
+    }
 }
 
-if (middle > middle) {
-    middle = numbers[2]
+function minBetween(a, b) {
+    if (a < b) {
+        return a
+    } else {
+        return b
+    }
 }
 
+const maxFirstPair = maxBetween(numbers[0], numbers[1])
+const maxLastPair = maxBetween(numbers[1], numbers[2])
+const middle = minBetween(maxFirstPair, maxLastPair)
 
 console.log(middle)
