@@ -1,4 +1,4 @@
-# Trouver la suisse
+# T
 defmodule Exercice do
   def validate_args([arg1, arg2, arg3]) do
     with {:ok, num1} <- parse_arg(arg1),
@@ -27,5 +27,5 @@ System.argv()
     IO.puts(middle)
 
   {:error, {:invalid_arg, arg}} ->
-    IO.puts("\"#{arg}\"")
+    IO.puts("\"#{arg}\" n'est pas un nombre entier.")
 end
